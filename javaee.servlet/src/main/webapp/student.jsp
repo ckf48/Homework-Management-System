@@ -48,7 +48,7 @@
     </table>
 </div>
 <div align="center">
-    <form  action="${pageContext.request.contextPath}/addStudentHomework" method="get">
+    <form  action="addStudentHomework" method="get">
         <label>
             学生号：<input type="number" name="student_id">
         </label><br/>

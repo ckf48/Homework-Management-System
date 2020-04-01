@@ -11,7 +11,8 @@
     <modules>
         <module>core</module>
         <module>db</module>
-        <module>web</module>
+        <module>javaee.servlet</module>
+        <module>javaee.springmvc</module>
     </modules>
 
     <dependencies>

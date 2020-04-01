@@ -56,7 +56,7 @@
     </table>
 </div>
 <div align="center">
-    <form action="${pageContext.request.contextPath}/addHomework" method="get">
+    <form action="addHomework" method="get">
         <label>
            作业题目： <input type="text" name="title">
         </label><br/>
