@@ -1,9 +1,10 @@
 package controller;
 
-import jdbc.HomeworkJdbc;
-import jdbc.StudentHomeworkJdbc;
+import Bean.HomeworkJdbc;
+import Bean.StudentHomeworkJdbc;
 import model.Homework;
 import model.StudentHomework;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -20,7 +21,9 @@ public class StudentController {
 
     @RequestMapping("/selectHomework")
     public String selectAll(HttpServletRequest req){
-        List<Homework> list = HomeworkJdbc.selectAllHomework();
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HomeworkJdbc.class);
+        HomeworkJdbc service = (HomeworkJdbc) context.getBean("homeworkJdbc");
+        List<Homework> list = service.selectAllHomework();
         req.setAttribute("list",list);
         return "/jsp/student.jsp";
     }
@@ -37,7 +40,9 @@ public class StudentController {
         studentHomework.setCreateTime(Timestamp.valueOf(req.getParameter("create_time")));
         studentHomework.setUpdateTime(Timestamp.valueOf(req.getParameter("update_time")));
 
-        StudentHomeworkJdbc.addStudentHomework(studentHomework);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(StudentHomeworkJdbc.class);
+        StudentHomeworkJdbc service = (StudentHomeworkJdbc) context.getBean("studentHomeworkJdbc");
+        service.addStudentHomework(studentHomework);
 
         return "/student/selectHomework";
     }

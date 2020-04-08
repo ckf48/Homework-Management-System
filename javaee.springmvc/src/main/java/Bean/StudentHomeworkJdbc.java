@@ -14,7 +14,7 @@ public class StudentHomeworkJdbc {
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/homeworks?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT";
     private static final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
 
-    public static void addStudentHomework(StudentHomework studentHomework) {
+    public void addStudentHomework(StudentHomework studentHomework) {
         try {
             Class.forName(DRIVER_NAME);
         } catch (ClassNotFoundException e) {
@@ -36,7 +36,7 @@ public class StudentHomeworkJdbc {
         }
     }
 
-    public static List<StudentHomework> selectAllStudentHomework() {
+    public List<StudentHomework> selectAllStudentHomework() {
         List<StudentHomework> list = new ArrayList<>();
         String sql = "select * from school.s_student_homework";
         try {
