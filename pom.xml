@@ -13,6 +13,7 @@
         <module>db</module>
         <module>javaee.servlet</module>
         <module>javaee.springmvc</module>
+        <module>javaee.springaop</module>
     </modules>
 
     <dependencies>
